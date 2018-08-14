@@ -1,0 +1,59 @@
+<div class="modal-header">
+    <h3 class="modal-title"><ng-pluralize count="game.id" when="{'': 'Add', 'other': 'Edit'}"></ng-pluralize> Game</h3>
+</div>
+<div class="modal-body">
+    GameId: {{ userScore.gameId }} - {{game.id}}<br/>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="week" class="col-sm-3 control-label">Week</label>
+            <div class="col-sm-6">
+                <input type="number" ng-model="game.week" class="form-control" id="week" placeholder="Week">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="opponent" class="col-sm-3 control-label">Opponent</label>
+            <div class="col-sm-6">
+                <input type="text" ng-model="game.opponent" class="form-control" id="opponent" placeholder="Opponent">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-3 control-label">Location</label>
+            <div class="col-sm-6">
+                <input type="text" ng-model="game.location" class="form-control" id="location" placeholder="Location">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="stadium" class="col-sm-3 control-label">Stadium</label>
+            <div class="col-sm-6">
+                <input type="text" ng-model="game.stadium" class="form-control" id="stadium" placeholder="Stadium">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-3 control-label">Home or Away</label>
+            <div class="btn-group col-sm-6">
+                <label class="btn btn-success" ng-model="game.homeOrAway" btn-radio="1" uncheckable>Home</label>
+                <label class="btn btn-success" ng-model="game.homeOrAway" btn-radio="0" uncheckable>Away</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gameDate" class="col-sm-3 control-label">Date and Time</label>
+            <div class="input-group col-sm-3">
+                <input type="text" class="form-control" id="gameDate" name="gameDate" datepicker-popup="{{format}}"
+                       data-ng-model="game.gameDate" is-open="gameDate" min-date="minDate" max-date="maxDate" init-date="initDate"
+                       datepicker-options="dateOptions" date-disabled="disabled(date, mode)" datepicker-mode="'day'" ng-required="true"
+                        />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openDatePicker($event, 'gameDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            </div>
+            <div class="col-sm-3">
+                <timepicker id="gameTime" ng-model="game.gameTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

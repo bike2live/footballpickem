@@ -1,0 +1,24 @@
+<ng-include src="'app/components/navBar/navBar.html'"></ng-include>
+<div class="container">
+    <div class="page-header">
+        <h1>Leader Board</h1>
+    </div>
+    <div class="page-content">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Total Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="leader in leaderBoard" ng-class="getRowClass(leader)">
+                    <td><strong>{{ leader .name}}</strong></small></td>
+                    <td>{{leader.totalScore}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

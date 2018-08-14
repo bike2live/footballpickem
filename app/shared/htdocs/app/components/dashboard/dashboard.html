@@ -1,0 +1,59 @@
+<ng-include src="'app/components/navBar/navBar.html'"></ng-include>
+<div class="container">
+    <div class="page-header">
+        <h1 ng-if="isHomeGame()">{{ currentGame.opponent }} vs BYU</h1>
+        <h1 ng-if="!isHomeGame()">BYU @ {{ currentGame.opponent }}</h1>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-sm-0 col-md-0 col-lg-3">&nbsp;</div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+            </div>
+            <div class="col-sm-1 col-md-2 col-lg-3">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default" ng-if="isEditable">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>BYU</th>
+                        <th>{{ currentGame.opponent }}</th>
+                        <th>Score Entered</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="userGuess in weeklyGuesses" ng-class="getRowClass(userGuess)">
+                        <td><strong>{{ userGuess.name }}</strong></td>
+                        <td><i class="fa fa-2x" ng-class="hideScore(userGuess)"></i></td>
+                        <td><i class="fa fa-2x" ng-class="hideScore(userGuess)"></i></td>
+                        <td><i class="fa fa-2x" ng-class="hasScore(userGuess)"></i></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default" ng-if="!isEditable">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>BYU</th>
+                        <th>{{ currentGame.opponent }}</th>
+                        <th>Outcome</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="userGuess in weeklyGuesses" ng-class="getRowClass(userGuess)">
+                        <td>{{ userGuess.name }}</td>
+                        <td>{{userGuess.byuScore}}</td>
+                        <td>{{userGuess.oppScore}}</td>
+                        <td><strong>{{userGuess.weekTotalScore}}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.page-content -->
+</div>

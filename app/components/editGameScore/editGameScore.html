@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit Game Score</h3>
+</div>
+<div class="modal-body">
+    GameId:  {{game.id}}<br/>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="week" class="col-sm-3 control-label">Week</label>
+            <div class="col-sm-4">
+                <input type="number" ng-model="game.week" class="form-control" id="week" placeholder="Week">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="byuScore" class="col-sm-3 control-label">BYU</label>
+            <div class="col-sm-4">
+                <input type="text" ng-model="game.byuScore" class="form-control" id="byuScore" placeholder="BYU score">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="opponentScore" class="col-sm-3 control-label">{{game.opponent}}</label>
+            <div class="col-sm-4">
+                <!--<input type="text" ng-model="game.opponent" class="form-control" id="opponentScore" placeholder="{{game.opponent}} score">-->
+                <input type="text" ng-model="game.oppScore" class="form-control" id="opponentScore" placeholder="{{game.opponent}} score">
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

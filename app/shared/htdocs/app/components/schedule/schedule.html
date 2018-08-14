@@ -1,0 +1,56 @@
+<ng-include src="'app/components/navBar/navBar.html'"></ng-include>
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-8 col-lg-8">
+                <h2><img src="api/images/BYU_logo.png" alt="byu logo"/> BYU Football Schedule
+                    <small>2016</small>
+                </h2>
+            </div>
+            <div class="col-md-2 col-lg-2 text-right" data-ng-if="admin">
+                <button type="button" class="btn btn-primary" ng-click="addGame();">Add Game</button>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>&nbsp;</th>
+                    <th data-ng-if="admin">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="game in schedule.games" ng-class="getRowClass(game)">
+                    <td><strong>{{game.gameDate | dateFilter }}</strong><br/>
+                        <small><em>{{game.gameDate | weekDayFilter }}</em></small>
+                    </td>
+                    <td ng-if="isGamePast(game)"><strong>{{game.opponent}}</strong></td>
+                    <td ng-if="!isGamePast(game)"><a href="game/{{game.id}}"><strong>{{game.opponent}}</strong></a>
+                    </td>
+                    <td>
+                        <img src="api/images/small-y-logo.png" alt="byu logo" ng-if="isHomeGame(game)"/> {{game.location}}<br/>{{game.stadiumName}}
+                    </td>
+                    <td ng-if="isGamePast(game)" ng-class="game.diff > 0 ? 'text-success' : 'text-danger'">
+                        <strong>{{game.byuScore}} - {{game.oppScore}}</strong></td>
+                    <td ng-if="!isGamePast(game)"><strong>{{game.gameDate | timeFilter }}</strong></td>
+                    <td>
+                        <ul class="nav nav-pills">
+                            <li role="presentation"><a ng-click="addScore(game)"><i class="fa fa-edit"></i></a></li>
+                        </ul>
+                    </td>
+                    <td data-ng-if="admin">
+                        <button type="button" class="btn btn-primary" ng-click="addGameScore(game);">Score</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.page-content -->
+</div>
