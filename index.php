@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <base href="/">
     <link rel="shortcut icon" href="api/images/favicon.ico" type="image/x-icon"/>
-    <title>Byu Football Guess 'Em 2015</title>
+    <title>Byu Football Guess 'Em 2018</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 <!--    <link href="css/bootstrap-theme.min.css" rel="stylesheet">-->
@@ -26,14 +26,14 @@
 </body>
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
 <!-- Libs -->
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/angular-route.min.js"></script>
-<script src="js/angular-animate.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/ui-bootstrap-tpls-0.13.3.min.js"></script>
-<script src="js/toaster.js"></script>
-<script src="js/moment.min.js"></script>
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
+<script src="lib/angular-animate.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/ui-bootstrap-tpls-0.13.3.min.js"></script>
+<script src="lib/toaster.js"></script>
+<script src="lib/moment.min.js"></script>
 <script src="app/app.js"></script>
 <script src="app/shared/data.js"></script>
 <script src="app/shared/directives.js"></script>
