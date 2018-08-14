@@ -22,7 +22,7 @@ app.config(['$routeProvider', '$locationProvider',
 
             .when('/signup', {
                 title: 'Signup',
-                templateUrl: 'partials/signup.html',
+                templateUrl: 'app/shared/partials/signup.html',
                 controller: 'authCtrl'
             })
 
