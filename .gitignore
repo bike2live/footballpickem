@@ -5,3 +5,4 @@ api/.DS_Store
 api/libs/.DS_Store
 bitnami@52.5.46.129
 footballpickem.iml
+./node_modules
